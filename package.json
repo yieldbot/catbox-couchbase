@@ -1,0 +1,47 @@
+{
+  "name": "catbox-couchbase",
+  "version": "1.0.0",
+  "description": "Couchbase adapter for catbox",
+  "keywords": [
+    "couchbase",
+    "adapter",
+    "catbox",
+    "cache",
+    "hapi",
+    "hapijs"
+  ],
+  "homepage": "http://github.com/cmfatih/catbox-couchbase",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cmfatih/catbox-couchbase.git"
+  },
+  "bugs": {
+    "url": "http://github.com/cmfatih/catbox-couchbase/issues"
+  },
+  "license": "MIT",
+  "private": false,
+  "author": {
+    "name": "cmfatih",
+    "url": "http://github.com/cmfatih"
+  },
+  "contributors": [],
+  "main": "./index.js",
+  "scripts": {
+    "lint": "node_modules/jshint/bin/jshint --reporter node_modules/jshint-stylish `find . \\( -path \\*node_modules\\* -prune -o -path \\*sources\\* -prune -o -name \\*.js \\) -type f | awk 'NR>1{printf \" \"}{printf $0}'`",
+    "test:unit": "node_modules/mocha/bin/mocha --timeout 10000 --reporter spec test/test-*.js",
+    "test": "npm run test:unit && npm run lint"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "dependencies": {
+    "couchbase": "2.0.x"
+  },
+  "devDependencies": {
+    "chai": "3.0.x",
+    "jshint": "2.8.x",
+    "jshint-stylish": "2.0.x",
+    "mocha": "2.2.x",
+    "catbox": "4.x.x"
+  }
+}
