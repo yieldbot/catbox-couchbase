@@ -1,12 +1,5 @@
 language: node_js
 node_js:
+  - "0.12"
   - "0.10"
-
-before_install:
-  - sudo apt-get update -qq
-  - sudo apt-get -y -qq install wget libssl0.9.8
-  - sudo wget -q http://packages.couchbase.com/releases/2.0.1/couchbase-server-enterprise_x86_64_2.0.1.deb -O couchbase-server.deb
-  - sudo dpkg -i couchbase-server.deb
-  - sudo service couchbase-server start
-  - /opt/couchbase/bin/couchbase-cli cluster-init -c 127.0.0.1:8091 --cluster-init-ramsize=256 -u Administrator -p password
-  - /opt/couchbase/bin/couchbase-cli bucket-create -c 127.0.0.1:8091 --bucket=default --bucket-password= --bucket-type=couchbase --bucket-port=11211 --bucket-ramsize=100 --bucket-replica=0 -u Administrator -p password
+  - "iojs"
