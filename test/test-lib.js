@@ -10,7 +10,7 @@ var Client = require('../'),
 describe('lib', function() {
 
   var getClient = function getClient() {
-    return new Client();
+    return new Client({flags: {isMock: true}});
   };
 
   it('should create a connection', function(done) {
@@ -67,7 +67,8 @@ describe('lib', function() {
       client.drop(key, function(err) {
         expect(err).to.equal(undefined);
 
-        client.set(key, 'bar', 1000*60*60*24*30, function(err) {
+        // https://github.com/couchbase/couchnode/pull/41
+        client.set(key, 'bar', 1000*60*60*24*29, function(err) {
           expect(err).to.equal(undefined);
 
           client.get(key, function(err, result) {
@@ -131,8 +132,12 @@ describe('lib', function() {
       expect(client.isReady()).to.equal(true);
 
       client.set(null, {}, 1000, function(err) {
-        expect(err.message).to.equal('invalid cache key');
-        done();
+        expect(err.message).to.equal('invalid key');
+
+        client.set({}, {}, 1000, function(err) {
+          expect(err.message).to.equal('invalid key');
+          done();
+        });
       });
     });
   });
@@ -161,12 +166,22 @@ describe('lib', function() {
       client.get(null, function(err, result) {
         expect(err).to.equal(null);
         expect(result).to.equal(null);
+        done();
+      });
+    });
+  });
 
-        client.get({}, function(err, result) {
-          expect(err).to.equal(null);
-          expect(result).to.equal(null);
-          done();
-        });
+  it('should fail to return - key', function(done) {
+    var client = getClient();
+
+    client.start(function(err) {
+      expect(err).to.equal(undefined);
+      expect(client.isReady()).to.equal(true);
+
+      client.get({}, function(err, result) {
+        expect(err.message).to.equal('invalid key');
+        expect(result).to.equal(undefined);
+        done();
       });
     });
   });
@@ -200,10 +215,15 @@ describe('lib', function() {
       expect(err).to.equal(undefined);
       expect(client.isReady()).to.equal(true);
 
-      client.drop({}, function(err, result) {
-        expect(err.message).to.contain('empty key');
+      client.drop(null, function(err, result) {
+        expect(err.message).to.equal('invalid key');
         expect(result).to.equal(undefined);
-        done();
+
+        client.drop({}, function(err, result) {
+          expect(err.message).to.equal('invalid key');
+          expect(result).to.equal(undefined);
+          done();
+        });
       });
     });
   });

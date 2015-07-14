@@ -11,7 +11,7 @@ var Client = require('../'),
 describe('catbox', function() {
 
   var getClient = function getClient() {
-    return new Catbox.Client(Client);
+    return new Catbox.Client(Client, {flags: {isMock: true}});
   };
 
   it('should create a connection', function(done) {
@@ -68,7 +68,8 @@ describe('catbox', function() {
       client.drop(key, function(err) {
         expect(err).to.equal(undefined);
 
-        client.set(key, 'bar', 1000*60*60*24*30, function(err) {
+        // https://github.com/couchbase/couchnode/pull/41
+        client.set(key, 'bar', 1000*60*60*24*29, function(err) {
           expect(err).to.equal(undefined);
 
           client.get(key, function(err, result) {
@@ -133,7 +134,11 @@ describe('catbox', function() {
 
       client.set(null, {}, 1000, function(err) {
         expect(err.message).to.equal('Invalid key');
-        done();
+
+        client.set({}, {}, 1000, function(err) {
+          expect(err.message).to.equal('Invalid key');
+          done();
+        });
       });
     });
   });
@@ -152,7 +157,7 @@ describe('catbox', function() {
     });
   });
 
-  it('should return error - key', function(done) {
+  it('should return null - key', function(done) {
     var client = getClient();
 
     client.start(function(err) {
@@ -162,12 +167,22 @@ describe('catbox', function() {
       client.get(null, function(err, result) {
         expect(err).to.equal(null);
         expect(result).to.equal(null);
+        done();
+      });
+    });
+  });
 
-        client.get({}, function(err, result) {
-          expect(err.message).to.equal('Invalid key');
-          expect(result).to.equal(undefined);
-          done();
-        });
+  it('should fail to return - key', function(done) {
+    var client = getClient();
+
+    client.start(function(err) {
+      expect(err).to.equal(undefined);
+      expect(client.isReady()).to.equal(true);
+
+      client.get({}, function(err, result) {
+        expect(err.message).to.equal('Invalid key');
+        expect(result).to.equal(undefined);
+        done();
       });
     });
   });
@@ -201,10 +216,15 @@ describe('catbox', function() {
       expect(err).to.equal(undefined);
       expect(client.isReady()).to.equal(true);
 
-      client.drop({}, function(err, result) {
-        expect(err.message).to.contain('Invalid key');
+      client.drop(null, function(err, result) {
+        expect(err.message).to.equal('Invalid key');
         expect(result).to.equal(undefined);
-        done();
+
+        client.drop({}, function(err, result) {
+          expect(err.message).to.equal('Invalid key');
+          expect(result).to.equal(undefined);
+          done();
+        });
       });
     });
   });
