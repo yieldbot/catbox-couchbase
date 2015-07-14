@@ -15,9 +15,11 @@ npm install catbox-couchbase
 #### Options
 
 * `location` - Couchbase cluster location. Default `localhost:8091`
-* `host` - Couchbase cluster host (Can not be used with location). Default `localhost`
-* `port` - Couchbase cluster port (Can not be used with location). Default `8091`
-* `partition` - Couchbase bucket Default: `default`
+* `bucket` - Couchbase bucket. Default: `default`
+* `partition` - Cache key prefix. Partition is intentionally used for cache key
+  prefix since Couchbase recommends <= 10 buckets for per cluster.
+  Also Catbox sets partition to `catbox` if it is not defined so use `NONE` for
+  no partition.
 
 *See [catbox client](https://github.com/hapijs/catbox#client) and 
 [couchbase](https://github.com/couchbase/couchnode) for more details and options.*
