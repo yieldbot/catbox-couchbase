@@ -11,7 +11,7 @@ var Client = require('../'),
 describe('catbox', function() {
 
   var getClient = function getClient() {
-    return new Catbox.Client(Client, {partition: 'default'});
+    return new Catbox.Client(Client);
   };
 
   it('should create a connection', function(done) {
@@ -64,7 +64,7 @@ describe('catbox', function() {
       expect(err).to.equal(undefined);
       expect(client.isReady()).to.equal(true);
 
-      var key = {id: 'foo30c', segment: 'test'};
+      var key = {id: 'foo30', segment: 'test'};
       client.drop(key, function(err) {
         expect(err).to.equal(undefined);
 
@@ -89,7 +89,7 @@ describe('catbox', function() {
       expect(err).to.equal(undefined);
       expect(client.isReady()).to.equal(true);
 
-      var key = {id: 'foo31c', segment: 'test'};
+      var key = {id: 'foo31', segment: 'test'};
       client.drop(key, function(err) {
         expect(err).to.equal(undefined);
 
@@ -152,17 +152,22 @@ describe('catbox', function() {
     });
   });
 
-  it('should fail to get an item due to key', function(done) {
+  it('should return error - key', function(done) {
     var client = getClient();
 
     client.start(function(err) {
       expect(err).to.equal(undefined);
       expect(client.isReady()).to.equal(true);
 
-      client.get({}, function(err, result) {
-        expect(err.message).to.equal('Invalid key');
-        expect(result).to.equal(undefined);
-        done();
+      client.get(null, function(err, result) {
+        expect(err).to.equal(null);
+        expect(result).to.equal(null);
+
+        client.get({}, function(err, result) {
+          expect(err.message).to.equal('Invalid key');
+          expect(result).to.equal(undefined);
+          done();
+        });
       });
     });
   });
@@ -175,7 +180,7 @@ describe('catbox', function() {
       expect(client.isReady()).to.equal(true);
 
       var key = {id: 'qux', segment: 'test'};
-      client.set(key, 'foo', 1000, function(err) {
+      client.set(key, 'foo', 1, function(err) {
         expect(err).to.equal(undefined);
         client.drop(key, function(err) {
           expect(err).to.equal(undefined);
@@ -197,7 +202,7 @@ describe('catbox', function() {
       expect(client.isReady()).to.equal(true);
 
       client.drop({}, function(err, result) {
-        expect(err.message).to.equal('Invalid key');
+        expect(err.message).to.contain('Invalid key');
         expect(result).to.equal(undefined);
         done();
       });
@@ -208,9 +213,10 @@ describe('catbox', function() {
     var client = getClient();
 
     expect(client.validateSegmentName().message).to.equal('invalid segment name');
+    expect(client.validateSegmentName('\n').message).to.equal('invalid segment name');
     expect(client.validateSegmentName('\0').message).to.equal('invalid segment name');
-    expect(client.validateSegmentName(' ').message).to.equal('invalid segment name');
     expect(client.validateSegmentName('\t').message).to.equal('invalid segment name');
+    expect(client.validateSegmentName(' ').message).to.equal('invalid segment name');
     done();
   });
 
@@ -230,7 +236,7 @@ describe('catbox', function() {
             expect(result).to.equal(null);
             done();
           });
-        }, 2);
+        }, 2000);
       });
     });
   });
