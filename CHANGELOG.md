@@ -1,5 +1,9 @@
 ## Changelog
 
+### 2.0.1 (2015-07-18)
+
+* Tidy changes
+
 ### 2.0.0 (2015-07-13)
 
 * Use mock for tests
