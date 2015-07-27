@@ -1,5 +1,9 @@
 ## Changelog
 
+### 2.0.2 (2015-07-26)
+
+* Misc.updates
+
 ### 2.0.1 (2015-07-18)
 
 * Tidy changes
