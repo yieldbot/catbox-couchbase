@@ -12,4 +12,7 @@ npm-debug.log
 dump.rdb
 xunit.xml
 
+logs/*
+reports/*
+tmp/*
 sources/
