@@ -20,6 +20,9 @@ npm install catbox-couchbase
   prefix since Couchbase recommends <= 10 buckets for per cluster.
   Also Catbox sets partition to `catbox` if it is not defined so use `NONE` for
   no partition.
+* `flags` - Flags
+  * `bypassCacheOnConnError` - Bypass cache if there is a connection error. Default `false`
+  * `debug` - List of flags (`['events']`) for debugging. Default `[]`
 
 *See [catbox client](https://github.com/hapijs/catbox#client) and 
 [couchbase](https://github.com/couchbase/couchnode) for more details and options.*
