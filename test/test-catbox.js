@@ -68,6 +68,7 @@ describe('catbox', function() {
       client.drop(key, function(err) {
         expect(err).to.equal(undefined);
 
+        // TODO: Watch the issue
         // https://github.com/couchbase/couchnode/pull/41
         client.set(key, 'bar', 1000*60*60*24*29, function(err) {
           expect(err).to.equal(undefined);
