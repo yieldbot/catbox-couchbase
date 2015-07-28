@@ -1,5 +1,10 @@
 ## Changelog
 
+### 2.1.0 (2015-07-28)
+
+* Add bypass cache flag
+* Add new server options
+
 ### 2.0.2 (2015-07-26)
 
 * Misc.updates
