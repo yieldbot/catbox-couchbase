@@ -21,6 +21,7 @@ npm install catbox-couchbase
   Also Catbox sets partition to `catbox` if it is not defined so use `NONE` for
   no partition.
 * `flags` - Flags
+  * `keepAlive` - Keep connection alive. Default `true`
   * `bypassCacheOnConnError` - Bypass cache if there is a connection error. Default `false`
   * `debug` - List of flags (`['events']`) for debugging. Default `[]`
 
