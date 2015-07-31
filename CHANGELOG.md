@@ -1,5 +1,10 @@
 ## Changelog
 
+### 2.2.0 (2015-07-30)
+
+* Add keep alive feature
+* Add bypass event
+
 ### 2.1.0 (2015-07-28)
 
 * Add bypass cache flag
