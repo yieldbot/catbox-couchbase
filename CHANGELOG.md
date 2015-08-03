@@ -1,5 +1,9 @@
 ## Changelog
 
+### 2.2.1 (2015-08-03)
+
+* Change error event message
+
 ### 2.2.0 (2015-07-30)
 
 * Add keep alive feature
