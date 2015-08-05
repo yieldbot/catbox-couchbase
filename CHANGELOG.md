@@ -1,5 +1,9 @@
 ## Changelog
 
+### 2.2.2 (2015-08-05)
+
+* Update timeouts and keep alive
+
 ### 2.2.1 (2015-08-03)
 
 * Change error event message
