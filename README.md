@@ -34,7 +34,7 @@ Licensed under The MIT License (MIT)
 For the full copyright and license information, please view the LICENSE.txt file.
 
 [npm-url]: http://npmjs.org/package/catbox-couchbase
-[npm-image]: https://badge.fury.io/js/catbox-couchbase.png
+[npm-image]: https://badge.fury.io/js/catbox-couchbase.svg
 
-[travis-url]: https://travis-ci.org/cmfatih/catbox-couchbase
-[travis-image]: https://travis-ci.org/cmfatih/catbox-couchbase.svg?branch=master
+[travis-url]: https://travis-ci.org/yieldbot/catbox-couchbase
+[travis-image]: https://travis-ci.org/yieldbot/catbox-couchbase.svg?branch=master
