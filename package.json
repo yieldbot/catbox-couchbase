@@ -10,19 +10,19 @@
     "hapi",
     "hapijs"
   ],
-  "homepage": "http://github.com/cmfatih/catbox-couchbase",
+  "homepage": "http://github.com/yieldbot/catbox-couchbase",
   "repository": {
     "type": "git",
-    "url": "https://github.com/cmfatih/catbox-couchbase.git"
+    "url": "https://github.com/yieldbot/catbox-couchbase.git"
   },
   "bugs": {
-    "url": "http://github.com/cmfatih/catbox-couchbase/issues"
+    "url": "http://github.com/yieldbot/catbox-couchbase/issues"
   },
   "license": "MIT",
   "private": false,
   "author": {
-    "name": "cmfatih",
-    "url": "http://github.com/cmfatih"
+    "name": "Yieldbot, Inc.",
+    "url": "http://github.com/yieldbot"
   },
   "contributors": [],
   "main": "./index.js",
