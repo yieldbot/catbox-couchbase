@@ -24,7 +24,12 @@
     "name": "Yieldbot, Inc.",
     "url": "http://github.com/yieldbot"
   },
-  "contributors": [],
+  "contributors": [
+    {
+      "name": "cmfatih",
+      "url": "http://github.com/cmfatih"
+    }
+  ],
   "main": "./index.js",
   "scripts": {
     "lint": "jshint --reporter node_modules/jshint-stylish lib/*.js test/*.js",
