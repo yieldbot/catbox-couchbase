@@ -43,7 +43,7 @@
     "node": ">=0.10.0"
   },
   "dependencies": {
-    "couchbase": "2.0.x"
+    "couchbase": "2.1.x"
   },
   "devDependencies": {
     "chai": "3.2.x",
