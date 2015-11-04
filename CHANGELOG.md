@@ -1,5 +1,11 @@
 ## Changelog
 
+### 2.2.3 (2015-11-04)
+
+* Upgrade couchbase to 2.1.x
+* Upgrade dev dependencies
+* Change license copyright
+
 ### 2.2.2 (2015-08-05)
 
 * Update timeouts and keep alive
