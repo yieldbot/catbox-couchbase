@@ -46,13 +46,13 @@
     "couchbase": "2.1.x"
   },
   "devDependencies": {
-    "chai": "3.2.x",
+    "chai": "3.3.x",
     "jshint": "2.8.x",
     "jshint-stylish": "2.0.x",
-    "mocha": "2.2.x",
+    "mocha": "2.3.x",
     "mocha-multi": "0.7.x",
     "dependency-check": "2.5.x",
-    "istanbul": "^0.3.17",
+    "istanbul": "0.4.x",
     "catbox": "4.x.x"
   }
 }
