@@ -1,16 +1,16 @@
-node_modules/
-npm-debug.log
-
 .DS_Store
 .idea
 .settings
 .coverrun
 .coverdata
+.env
 *.log
 *.heapsnapshot
+*.pprof
 xunit.xml
+tmp/
+logs/
+reports/
 
-logs/*
-reports/*
-tmp/*
-sources/
+npm-debug.log
+node_modules/
