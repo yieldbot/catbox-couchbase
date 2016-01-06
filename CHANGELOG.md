@@ -1,5 +1,9 @@
 ## Changelog
 
+### 2.2.4 (2016-01-06)
+
+* Pin couchbase dep version
+
 ### 2.2.3 (2015-11-04)
 
 * Upgrade couchbase to 2.1.x
