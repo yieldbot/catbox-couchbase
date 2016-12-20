@@ -1,6 +1,6 @@
 {
   "name": "catbox-couchbase",
-  "version": "2.2.4",
+  "version": "2.2.5",
   "description": "Couchbase adapter for catbox",
   "keywords": [
     "couchbase",
@@ -27,7 +27,11 @@
   "contributors": [
     {
       "name": "cmfatih",
-      "url": "http://github.com/cmfatih"
+      "url": "https://github.com/cmfatih"
+    },
+    {
+      "name": "baldmountain",
+      "url": "https://github.com/baldmountain"
     }
   ],
   "main": "./index.js",
@@ -43,7 +47,7 @@
     "node": ">=0.10.0"
   },
   "dependencies": {
-    "couchbase": "2.2.3"
+    "couchbase": "2.2.x"
   },
   "devDependencies": {
     "chai": "3.3.x",
