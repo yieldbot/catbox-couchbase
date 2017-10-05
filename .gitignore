@@ -15,3 +15,5 @@ reports/
 
 npm-debug.log
 node_modules/
+# for now
+package-lock.json

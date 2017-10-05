@@ -47,16 +47,16 @@
     "node": ">=0.10.0"
   },
   "dependencies": {
-    "couchbase": "2.2.x"
+    "couchbase": "2.4.x"
   },
   "devDependencies": {
-    "chai": "3.3.x",
-    "jshint": "2.8.x",
-    "jshint-stylish": "2.0.x",
-    "mocha": "2.3.x",
-    "mocha-multi": "0.7.x",
-    "dependency-check": "2.5.x",
+    "chai": "4.1.x",
+    "jshint": "2.9.x",
+    "jshint-stylish": "2.2.x",
+    "mocha": "3.5.x",
+    "mocha-multi": "0.11.x",
+    "dependency-check": "2.9.x",
     "istanbul": "0.4.x",
-    "catbox": "4.x.x"
+    "catbox": "7.x.x"
   }
 }
