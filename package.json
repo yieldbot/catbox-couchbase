@@ -1,6 +1,6 @@
 {
   "name": "catbox-couchbase",
-  "version": "2.2.5",
+  "version": "2.2.6",
   "description": "Couchbase adapter for catbox",
   "keywords": [
     "couchbase",
